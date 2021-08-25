@@ -41,3 +41,68 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
+// - No bonus can be above 13% or below 0% total.
+function individualBonusCalculation(employee){  
+    let bonus;
+
+    if (employee.reviewRating <= 2) {
+      bonus = 0;
+    }else if(employee.reviewRating === 3){
+      bonus = 4;
+    }else if(employee.reviewRating === 4){
+      bonus = 6;
+    }else if(employee.reviewRating===5){
+      bonus = 10;
+    }
+    
+    if(employee.employeeNumber.length == 4){
+      bonus += 5;
+    }
+    
+    if(employee.annualSalary > 65000){
+      bonus -= 1;    
+    }
+
+    if (bonus > 13) {
+      bonus = 13;
+    }
+
+    if (bonus < 0) {
+      bonus = 0;
+    }
+    
+      
+    let employeeObj = {
+      name: employee.name,
+      bonusPercentage: bonus,
+      totalCompensation: 0,
+      totalBonus: 0
+    };
+
+    employeeObj.totalBonus = (bonus/100) * Number(employee.annualSalary);
+    employeeObj.totalCompensation = Number(employeeObj.totalBonus) + Number(employee.annualSalary);
+
+    return employeeObj;
+  }
+
+  $(document).ready(runIt);
+
+  function runIt() {
+  $('#empbutton').on('click',displayIt); 
+} 
+  function displayIt() {
+    let element = $('#employeedata');
+    element.empty();
+  
+    for (let emp of employees) {
+    let testEmp= individualBonusCalculation(emp);
+    element.append(
+      `<li>${testEmp.name}   ${testEmp.bonusPercentage}   ${testEmp.totalCompensation}  ${testEmp.totalBonus}</li>`
+      );
+    } 
+  }
+
+
+
+
+  

@@ -1,4 +1,4 @@
-# Bonus Calculator App
+<!-- # Bonus Calculator App
 
 You are going to write a single JavaScript file to automatically calculate employee bonus for a company.
 
@@ -67,4 +67,4 @@ NOTE: You may abstract out this bonus calculation into a second function if you 
 ## Stretch Goals
 - Put the output on the DOM (visually on the page).
 - Make the app run only after the user clicks on a button on the page
-- Then style the output, making it visually appealing.
+- Then style the output, making it visually appealing. -->
